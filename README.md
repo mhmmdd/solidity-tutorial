@@ -9,3 +9,7 @@ Install the dependencies with `npm install`.
 
 ## Testing
 Run the test suite with `npm test`.
+
+
+## Changes
+1. 11-struct-enum.sol - added a struct and an enum
