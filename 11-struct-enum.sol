@@ -17,6 +17,11 @@ contract StructEnum {
     address public owner;
     uint256 public orderCount;
 
+    // events
+    // indexed keyword is used to filter events on etherscan
+    event OrderCreated(uint256 orderId, address indexed buyer);
+    event ZipCodeUpdated(uint256 orderId, string zipCode);
+
     constructor() {
         owner = msg.sender;
     }
@@ -37,8 +42,10 @@ contract StructEnum {
         //            items: items,
         //            status: Status.Pending
         //        });
-
         orders.push(order);
+
+        // emit event
+        emit OrderCreated(orders.length - 1, msg.sender);
         return order.length - 1;
     }
 
@@ -71,6 +78,9 @@ contract StructEnum {
         Order storage order = orders[orderId];
         require(order.buyer == msg.sender, "Only buyer can update zip code");
         order.zipCode = zipCode;
+
+        // emit event
+        emit ZipCodeUpdated(orderId, zipCode);
     }
 
     // check items modifier

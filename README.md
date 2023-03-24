@@ -15,3 +15,5 @@ Run the test suite with `npm test`.
 1. 11-struct-enum.sol - added a struct and an enum.
 2. 11-struct-enum.sol - added modifier.<br>
    **modifier**: it is used to check the condition before executing the function.
+3. 11-struc-enum.sol - added event.<br>
+   **event**: it is used to log the event in the blockchain.
