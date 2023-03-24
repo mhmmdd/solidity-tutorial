@@ -15,23 +15,28 @@ contract StructEnum {
 
     Order [] public orders;
     address public owner;
+    uint256 public orderCount;
 
     constructor() {
         owner = msg.sender;
     }
 
     // create order function only zipCode and items
-    function createOrder(string memory zipCode, uint256 [] memory items) public returns (uint256) {
+    function createOrder(string memory zipCode, uint256 [] memory items) checkItems(items) incrementOrderCount
+    public returns (uint256) {
+        // it is not necessary because of checkItems modifier
+        // require(products.length > 0, "No products found");
+
         Order memory order = Order(msg.sender, 0, zipCode, items, Status.Pending);
 
         // another way to create struct
-//        Order memory order = Order({
-//            buyer: msg.sender,
-//            amount: 0,
-//            zipCode: zipCode,
-//            items: items,
-//            status: Status.Pending
-//        });
+        //        Order memory order = Order({
+        //            buyer: msg.sender,
+        //            amount: 0,
+        //            zipCode: zipCode,
+        //            items: items,
+        //            status: Status.Pending
+        //        });
 
         orders.push(order);
         return order.length - 1;
@@ -39,8 +44,7 @@ contract StructEnum {
 
 
     // advance order function
-    function advanceOrder(uint256 orderId) public {
-        require(msg.sender == owner, "Only owner can advance order");
+    function advanceOrder(uint256 orderId) onlyOwner public {
         require(orderId < orders.length, "Order not found");
 
         Order storage order = orders[orderId];
@@ -52,17 +56,52 @@ contract StructEnum {
     }
 
     // get order function
-    function getOrder(uint256 orderId) public view returns (Order memory) {
-        require(orderId < orders.length, "Order not found");
+    function getOrder(uint256 orderId) checkOrder(orderId) public view returns (Order memory) {
+        // it is not necessary because of checkOrder modifier
+        // require(orderId < orders.length, "Order not found");
+
         return orders[orderId];
     }
 
     // update zip code function
-    function updateZipCode(uint256 orderId, string memory zipCode) public {
-        require(orderId < orders.length, "Order not found");
+    function updateZipCode(uint256 orderId, string memory zipCode) checkOrder(orderId) onlyBuyer(orderId) incrementOrderCount public {
+        // it is not necessary because of checkOrder modifier
+        // require(orderId < orders.length, "Order not found");
+
         Order storage order = orders[orderId];
         require(order.buyer == msg.sender, "Only buyer can update zip code");
         order.zipCode = zipCode;
+    }
+
+    // check items modifier
+    modifier checkItems(uint256 [] memory items) {
+        require(items.length > 0, "Order must have at least one item");
+        _;
+        // continue execution, this is basically a body of the function
+    }
+
+    modifier checkOrder(uint256 orderId) {
+        require(orderId < orders.length, "Order not found");
+        _;
+        // continue execution, this is basically a body of the function
+    }
+
+    modifier incrementOrderCount {
+        _;
+        // continue execution, this is basically a body of the function
+        orderCount++;
+    }
+
+    modifier onlyOwner {
+        require(msg.sender == owner, "Only owner can advance order");
+        _;
+        // continue execution, this is basically a body of the function
+    }
+
+    modifier onlyBuyer(uint256 orderId) {
+        require(orders[orderId].buyer == msg.sender, "Only buyer can update zip code");
+        _;
+        // continue execution, this is basically a body of the function
     }
 }
 
