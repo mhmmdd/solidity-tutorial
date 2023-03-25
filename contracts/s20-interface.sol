@@ -1,10 +1,11 @@
-//SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 abstract contract Strategy {
     // abstract contract can hold state variables
     uint256 public amount;
     address public owner;
+
     function getAddressAndAmount() public virtual returns (address, uint256);
 }
 
@@ -18,7 +19,8 @@ contract EthSender {
         payable(_address).transfer(_amount);
     }
 
-    function send(IStrategy _strategy) public {
+    // send using IsStrategy interface
+    function send2(IStrategy _strategy) public {
         (address _address, uint256 _amount) = _strategy.getAddressAndAmount();
         payable(_address).transfer(_amount);
     }

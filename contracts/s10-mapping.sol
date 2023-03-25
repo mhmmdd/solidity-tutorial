@@ -1,11 +1,10 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Mapping {
     // like hash table or dictionary: key => value
     // iterate over mapping is not possible
     mapping(address => bool) public registered;
-
-    bool public registered;
 
     // register user
     function register() public {

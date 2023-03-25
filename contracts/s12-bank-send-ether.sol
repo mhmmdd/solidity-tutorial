@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Bank {
@@ -52,7 +53,7 @@ contract Bank {
     // Receive ether with data
     fallback() external payable {
         balance[msg.sender] += msg.value;
-        data = msg.data; // data should be hex encoded
+//        data = msg.data; // data should be hex encoded
     }
 
 }

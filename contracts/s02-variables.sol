@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Variables {
@@ -18,7 +19,7 @@ contract Variables {
     }
 
     // return global variable
-    function getGlobalVariable() public pure returns (uint) {
+    function getGlobalVariable() public view returns (uint) {
         // show all global variables
         // https://docs.soliditylang.org/en/v0.8.0/units-and-global-variables.html
         return block.number;

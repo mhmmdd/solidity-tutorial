@@ -4,8 +4,34 @@
 
 This is a tutorial project for a Solidity language. It includes a sample contract and a test suite.
 
+[Source Code](https://github.com/itublockchain/web3-bootcamp)
+
 ## Installation
+1. Node.js and npm are required to run this project.
+   ```shell
+   $ node -v
+   v18.15.0
+   ```
 Install the dependencies with `npm install`.
+
+## Steps for creating a project
+Source: [Hardhat](https://hardhat.org/getting-started/), [ITU Blockchain](https://github.com/itublockchain/web3-bootcamp/tree/master/2x0_Hardhat%26Ethers)
+
+```shell
+$ mkdir solidity-tutorial
+$ cd solidity-tutorial
+$ npm init -y
+$ npm install --save-dev hardhat
+$ npx hardhat
+# select "Create a TypeScript project"
+$ npm install --save-dev @nomicfoundation/hardhat-toolbox
+$ npm install @openzeppelin/contracts
+
+$ npm install --save-dev typescript @types/node @types/mocha @types/chai
+$ npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
+$ npm install --save-dev ts-node
+$ npx hardhat compile
+```
 
 ## Testing
 Run the test suite with `npm test`.
@@ -43,9 +69,10 @@ Run the test suite with `npm test`.
 5. 13-error.sol - added custom error.
 6. 14-library.sol - added library.
 7. 15-storage-memory-calldata.sol - added storage, memory and calldata.
-8.  [16-inheritance-override.sol](16-inheritance-override.sol),
-[17-inheritance-super.sol](17-inheritance-super.sol),
-[18-inheritance-import-ownable.sol](18-inheritance-import-ownable.sol) - added inheritance.
-9. [19-interaction.sol](19-interaction.sol) - added interaction with other contracts.
-10. [20-interface.sol](20-interface.sol), 
-[21-interface-event.sol](21-interface-event.sol) - added interface.
+8.  [16-inheritance-override.sol](contracts/s16-inheritance-override.sol),
+[17-inheritance-super.sol](contracts/s17-inheritance-super.sol),
+[18-inheritance-import-ownable.sol](contracts/s18-inheritance-import-ownable.sol) - added inheritance.
+9. [19-interaction.sol](contracts/s19-interaction.sol) - added interaction with other contracts.
+10. [20-interface.sol](contracts/s20-interface.sol), 
+[21-interface-event.sol](contracts/s21-interface-event.sol) - added interface.
+11. Hardhat environment added.

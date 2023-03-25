@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Interact {
@@ -32,7 +32,7 @@ contract Pay {
 contract Caller {
     Interact public interact;
 
-    constructor(address _interact) {
+    constructor(address payable _interact) {
         interact = Interact(_interact);
     }
 

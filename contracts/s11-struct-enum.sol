@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract StructEnum {
@@ -46,7 +47,7 @@ contract StructEnum {
 
         // emit event
         emit OrderCreated(orders.length - 1, msg.sender);
-        return order.length - 1;
+        return orders.length - 1;
     }
 
 

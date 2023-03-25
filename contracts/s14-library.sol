@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Library {
@@ -20,7 +21,7 @@ contract Library {
         return Math.divide(a, b);
     }
 
-    function trial5(uint [] memory data, uint value) public pure returns (uint) {
+    function trial5(uint [] memory data, uint value) public view returns (uint) {
         return Search.indexOf(data, value);
     }
 }
@@ -49,12 +50,12 @@ library Math {
 }
 
 library Search {
-    function indexOf(uint[] storage self, uint value) public view returns (uint) {
+    function indexOf(uint[] memory self, uint value) public view returns (uint) {
         for (uint i = 0; i < self.length; i++) {
             if (self[i] == value) {
                 return i;
             }
         }
-        return uint(- 1);
+        return type(uint).max;
     }
 }

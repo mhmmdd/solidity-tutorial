@@ -1,7 +1,9 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract IfElse {
-    byte32 private hashedPassword;
+    // hashedPassword is stored in the blockchain
+    bytes32 public hashedPassword;
 
     // memory is not stored in the blockchain
     // memory only exists during the execution of the function

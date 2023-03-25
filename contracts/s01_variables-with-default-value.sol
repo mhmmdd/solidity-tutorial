@@ -1,4 +1,5 @@
-pragma solidity ^0.5.4;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
 
 contract Variables {
     // write all fixed types in solidity
@@ -33,10 +34,13 @@ contract Variables {
 
     // enum
     enum Action {ADD, REMOVE, UPDATE}
+    Action constant defaultAction = Action.ADD;
 
-    if (Action.ADD == 0) {
-        // do something
-    }
+
+//    if (Action.ADD == defaultAction) {
+//        // do something
+//        return true;
+//    }
 
     // units
 //    1 ether == 1 * 10**18 wei // 10^18 wei == 1 ether
