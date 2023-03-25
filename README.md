@@ -46,3 +46,4 @@ Run the test suite with `npm test`.
 8.  [16-inheritance-override.sol](16-inheritance-override.sol),
 [17-inheritance-super.sol](17-inheritance-super.sol),
 [18-inheritance-import-ownable.sol](18-inheritance-import-ownable.sol) - added inheritance.
+9. [19-interaction.sol](19-interaction.sol) - added interaction with other contracts.
