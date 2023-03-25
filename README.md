@@ -41,3 +41,4 @@ Run the test suite with `npm test`.
    ```
    Note: Falback is called when the receive function is not defined or when the data is sent with the transaction.
 5. 13-error.sol - added custom error.
+6. 14-library.sol - added library.
