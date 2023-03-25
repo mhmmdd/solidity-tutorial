@@ -43,6 +43,6 @@ Run the test suite with `npm test`.
 5. 13-error.sol - added custom error.
 6. 14-library.sol - added library.
 7. 15-storage-memory-calldata.sol - added storage, memory and calldata.
-8. [16-inheritance-import-ownable.sol](16-inheritance-import-ownable.sol), 
-[17-inheritance-override.sol](16-inheritance-override.sol),
-[18-inheritance-super.sol](17-inheritance-super.sol) - added inheritance.
+8.  [16-inheritance-override.sol](16-inheritance-override.sol),
+[17-inheritance-super.sol](17-inheritance-super.sol),
+[18-inheritance-import-ownable.sol](18-inheritance-import-ownable.sol) - added inheritance.
