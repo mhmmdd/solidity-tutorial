@@ -31,6 +31,7 @@ $ npm install --save-dev typescript @types/node @types/mocha @types/chai
 $ npm install --save-dev @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
 $ npm install --save-dev ts-node
 $ npx hardhat compile
+$ npx hardhat test
 ```
 
 ## Testing
@@ -76,3 +77,4 @@ Run the test suite with `npm test`.
 10. [20-interface.sol](contracts/s20-interface.sol), 
 [21-interface-event.sol](contracts/s21-interface-event.sol) - added interface.
 11. Hardhat environment added.
+12. ERC20 token and lock contract added.
