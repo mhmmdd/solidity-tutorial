@@ -34,6 +34,41 @@ $ npx hardhat compile
 $ npx hardhat test
 ```
 
+## Deploying the contract
+1. Create a new file in the `scripts` folder called `deploy.ts`.
+2. Add the following code to the file:
+```typescript
+import { ethers } from "hardhat";
+
+async function main() {
+   const [deployer] = await ethers.getSigners();
+
+   const lockFactory = await ethers.getContractFactory("Lock");
+   // const lock = await lockFactory.deploy(1000, { value: ethers.utils.parseEther("0.001") });
+   const lock = await lockFactory.deploy("0x0000000");
+   console.log(`Lock deployed to ${lock.address}`);
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch(error => {
+    console.error(error);
+    process.exit(1);
+  });
+```
+3. Run the following command to deploy the contract:
+````shell
+# Deploying to Fuji Testnet
+$ npm hardhat run scripts/deploy.ts --network fuji
+````
+4. Run the following command to verify the contract:
+````shell
+# Verifying the contract on Fuji Testnet
+$ npm hardhat verify --network fuji DEPLOYED_CONTRACT_ADDRESS "0x0000000"
+````
+5. https://testnet.snowtrace.io/contract/0x0000000
+
+
 ## Testing
 Run the test suite with `npm test`.
 
@@ -78,3 +113,4 @@ Run the test suite with `npm test`.
 [21-interface-event.sol](contracts/s21-interface-event.sol) - added interface.
 11. Hardhat environment added.
 12. ERC20 token and lock contract added.
+13. Deployed the contract on Fuji Testnet.
