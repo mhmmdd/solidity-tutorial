@@ -92,7 +92,7 @@ Run the test suite with `npm test`.
    ```solidity
     (bool success,) = to.call{value: amount, gas: gas}(data);
    ```
-4. 12-bank-send-ether.sol - receive ether from the contract.<br>
+5. 12-bank-send-ether.sol - receive ether from the contract.<br>
    1. **receive**: it is used to receive ether.
    ```solidity
     receive() external payable {}
@@ -102,15 +102,16 @@ Run the test suite with `npm test`.
     fallback() external payable {}
    ```
    Note: Falback is called when the receive function is not defined or when the data is sent with the transaction.
-5. 13-error.sol - added custom error.
-6. 14-library.sol - added library.
-7. 15-storage-memory-calldata.sol - added storage, memory and calldata.
-8.  [16-inheritance-override.sol](contracts/s16-inheritance-override.sol),
+6. 13-error.sol - added custom error.
+7. 14-library.sol - added library.
+8. 15-storage-memory-calldata.sol - added storage, memory and calldata.
+9. [16-inheritance-override.sol](contracts/s16-inheritance-override.sol),
 [17-inheritance-super.sol](contracts/s17-inheritance-super.sol),
 [18-inheritance-import-ownable.sol](contracts/s18-inheritance-import-ownable.sol) - added inheritance.
-9. [19-interaction.sol](contracts/s19-interaction.sol) - added interaction with other contracts.
-10. [20-interface.sol](contracts/s20-interface.sol), 
+10. [19-interaction.sol](contracts/s19-interaction.sol) - added interaction with other contracts.
+11. [20-interface.sol](contracts/s20-interface.sol), 
 [21-interface-event.sol](contracts/s21-interface-event.sol) - added interface.
-11. Hardhat environment added.
-12. ERC20 token and lock contract added.
-13. Deployed the contract on Fuji Testnet.
+12. Hardhat environment added.
+13. ERC20 token and lock contract added.
+14. Deployed the contract on Fuji Testnet.
+15. Go native binding added.
